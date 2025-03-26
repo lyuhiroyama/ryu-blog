@@ -1,0 +1,17 @@
+source 'https://rubygems.org'
+
+# Sinatra framework. Also a lightweight web server.
+gem 'sinatra' 
+
+# Additional features of Sinatra framework. 
+# (e.g. auto JSON response handling / CORS handling / Request body handling)
+gem 'sinatra-contrib'
+
+# Ruby client for MySQL db. To connect, query, etc.
+gem 'mysql2'
+
+# Password hashing library
+gem 'bcrypt'
+
+gem 'dotenv'
+
