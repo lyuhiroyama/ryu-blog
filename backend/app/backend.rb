@@ -50,3 +50,19 @@ end
 
 
 # (2) Routes for users
+# User routes
+post '/users' do
+  data = JSON.parse(request.body.read)
+
+  username = db.escape(data['username'])
+  email = db.escape(data['email'])
+  hashed_password = BCrypt::Password.create(data['password'])
+  hashed_password = db.escape(hashed_password)
+  
+  
+  query = "INSERT INTO users (username, email, password_digest) VALUES ('#{username}', '#{email}', '#{hashed_password}')"
+  db.query(query)
+  
+  status 201
+  {message: "User created successfully"}.to_json
+end
