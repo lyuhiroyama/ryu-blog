@@ -66,3 +66,17 @@ post '/users' do
   status 201
   {message: "User created successfully"}.to_json
 end
+
+# Login route
+post '/login' do
+  data = JSON.parse(request.body.read)
+  user = db.query("SELECT * FROM users WHERE email = ?", data['email']).first
+  
+  if user && BCrypt::Password.new(user['password_digest']) == data['password']
+    status 200
+    {message: "Login successful", user_id: user['id']}.to_json
+  else
+    status 401
+    {error: "Invalid credentials"}.to_json
+  end
+end
