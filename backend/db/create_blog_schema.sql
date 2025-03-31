@@ -6,11 +6,14 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE posts (
+CREATE TABLE packages (
 	id INT PRIMARY KEY AUTO_INCREMENT,
+    tracking_number VARCHAR(50) NOT NULL UNIQUE,
+    sender VARCHAR(255) NOT NULL,
+    recipient VARCHAR(255) NOT NULL,
+    status ENUM('Created', 'In Transit', 'Out for Delivery', 'Delivered') NOT NULL,
+    estimated_delivery_date DATE,
     user_id INT NOT NULL,
-    title VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
