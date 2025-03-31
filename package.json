@@ -1,5 +1,5 @@
 {
-  "name": "ryu-blog",
+  "name": "shipment-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
