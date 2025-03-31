@@ -1,3 +1,10 @@
+CREATE DATABASE IF NOT EXISTS create_package_tracking_schema;
+
+USE create_package_tracking_schema;
+
+DROP TABLE IF EXISTS packages;
+DROP TABLE IF EXISTS users;
+
 CREATE TABLE users (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -17,3 +24,4 @@ CREATE TABLE packages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
