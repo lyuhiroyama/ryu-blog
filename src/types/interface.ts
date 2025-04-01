@@ -1,11 +1,17 @@
-export interface User {
+export interface Package {
     id: number;
-    userame: string;
+    trackingNumber: string;
+    sender: string;
+    recipient: string,
+    status: string;
+    estimatedDeliveryDate?: string; // # optional field
+    createdAt: string;
+    userId: number;
 }
 
-export interface Post {
+export interface User {
     id: number;
-    title: string;
-    content: string;
-    created_at: string;
+    username: string;
+    email: string;
+    createdAt: string;
 }
