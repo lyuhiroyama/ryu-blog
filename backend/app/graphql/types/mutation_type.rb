@@ -13,7 +13,7 @@ module Types
       argument :user_id, ID, required: true
     end
 
-    def created_package(tracking_number:, sender:, recipient:, status:, estimated_delivery_date: nil, user_id:)
+    def create_package(tracking_number:, sender:, recipient:, status:, estimated_delivery_date: nil, user_id:)
       sql = "INSERT INTO packages (tracking_number, sender, recipient, status, estimated_delivery_date, user_id) VALUES (?, ?, ?, ?, ?, ?)"
 
       db.prepare(sql).execute(

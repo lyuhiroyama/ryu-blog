@@ -1,12 +1,12 @@
 export interface Package {
     id: number;
-    trackingNumber: string;
+    tracking_number: string;
     sender: string;
     recipient: string,
     status: string;
-    estimatedDeliveryDate?: string; // # optional field
-    createdAt: string;
-    userId: number;
+    estimated_delivery_date?: string; // # optional field
+    created_at: string;
+    user_id: number;
 }
 
 export interface User {
