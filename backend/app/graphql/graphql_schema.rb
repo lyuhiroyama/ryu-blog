@@ -7,5 +7,5 @@ require_relative 'types/mutation_type'
 # root structure of GraphQL API
 class ShipmentTrackerSchema < GraphQL::Schema
   query Types::QueryType
-  query Types::MutationType
+  mutation Types::MutationType
 end
