@@ -4,16 +4,16 @@ import PackageDetails from './PackageDetails';
 
 // Define GraphQL query (Within it, you specify the shape of the data you want to retrieve.)
 const GET_PACKAGE = gql`
-    query GetPackage($tracking_number: String!) {
-        package(tracking_number: $tracking_number) {
+    query GetPackage($trackingNumber: String!) {
+        package(trackingNumber: $trackingNumber) {
             id
-            tracking_number
+            trackingNumber
             sender
             recipient
             status
-            estimated_delivery_date
-            created_at
-            user_id
+            estimatedDeliveryDate
+            createdAt
+            userId
         }
     }
 `;
@@ -29,7 +29,7 @@ const PackageSearchForm: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        getPackage({ variables: {tracking_number: trackingNumber}});  // Pass 'options object' as arg.
+        getPackage({ variables: {trackingNumber: trackingNumber}});  // Pass 'options object' as arg.
     }
     
     return (

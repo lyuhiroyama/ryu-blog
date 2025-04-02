@@ -3,29 +3,29 @@ import { gql, useMutation } from '@apollo/client';
 
 const CREATE_PACKAGE = gql`
     mutation CreatePackage(
-        $tracking_number: String!,
+        $trackingNumber: String!,
         $sender: String!,
         $recipient: String!,
         $status: String!,
-        $estimated_delivery_date: String,
-        $user_id: ID!
+        $estimatedDeliveryDate: String,
+        $userId: ID!
     ) {
-        create_package(
-            tracking_number: $tracking_number,
+        createPackage(
+            trackingNumber: $trackingNumber,
             sender: $sender,
             recipient: $recipient,
             status: $status,
-            estimated_delivery_date: $estimated_delivery_date,
-            user_id: $user_id
+            estimatedDeliveryDate: $estimatedDeliveryDate,
+            userId: $userId
         ) {
             id
-            tracking_number
+            trackingNumber
             sender
             recipient
             status
-            estimated_delivery_date
-            created_at
-            user_id
+            estimatedDeliveryDate
+            createdAt
+            userId
         }
     }
 `;
@@ -46,7 +46,14 @@ const PackageCreateForm: React.FC = () => {
         e.preventDefault();
         try {
             const result = await createPackage({
-                variables: newPackage
+                variables: {
+                    trackingNumber: newPackage.tracking_number,
+                    sender: newPackage.sender,
+                    recipient: newPackage.recipient,
+                    status: newPackage.status,
+                    estimatedDeliveryDate: newPackage.estimated_delivery_date,
+                    userId: newPackage.user_id
+                }
             });
             if (result.data) {
                 alert('Package created successfully!');

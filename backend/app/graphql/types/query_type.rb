@@ -1,7 +1,7 @@
 require 'graphql'
 
 module Types
-  class QueryType < GraphQl::Schema::Object
+  class QueryType < GraphQL::Schema::Object
     
     # Query to fetch single package via tracking_number
     field :package, PackageType, null: true do

@@ -3,7 +3,7 @@ import PackageTracker from './components/PackageTracker';
 
 function App() {
   return (
-    <div>
+    <div className='app-div'>
       <PackageTracker />
     </div>
   );
