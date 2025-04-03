@@ -35,18 +35,21 @@ const PackageSearchForm: React.FC<{ setPackageData: (data: any) => void }> = ({
     };
 
     return (
-        <div className="package-search">
-            <h2>Track your package</h2>
+        <div className="package-searchForm-component">
+            <div className="section-header">
+                シップメントの追跡
+            </div>
 
             <form onSubmit={handleSubmit}>
                 <input
+                    id="tracking-num-input-field"
                     type="text"
                     value={trackingNumber}
                     placeholder="Enter tracking number"
                     onChange={(e) => setTrackingNumber(e.target.value)}
                     required
                 />
-                <button type="submit">Track Package</button>
+                <button id='submit-btn' type="submit">追跡</button>
             </form>
 
             {loading && <p>Loading...</p>}
